@@ -1,4 +1,4 @@
-package com.example.features;
+package com.example.features.Client;
 
 import java.util.UUID;
 

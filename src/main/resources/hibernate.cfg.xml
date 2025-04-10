@@ -8,7 +8,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <!-- <mapping class="consultorio_banco.entities.PacienteEntity"/>
-        <mapping class="consultorio_banco.entities.EnderecoEntity"/> -->
+        <mapping class="com.example.features.Client.Client"/>
+        <mapping class="com.example.features.Order.Order"/>
     </session-factory>
 </hibernate-configuration>
