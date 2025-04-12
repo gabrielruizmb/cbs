@@ -1,4 +1,4 @@
-package com.example.features.Client;
+package com.example.features.client;
 
 import javax.persistence.EntityManager;
 
