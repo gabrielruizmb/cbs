@@ -1,5 +1,6 @@
 package com.example.features.client;
 
+import com.example.Main;
 import com.example.features.userinterface.UserInterface;
 
 public class ClientCrud {
@@ -33,6 +34,6 @@ public class ClientCrud {
         System.out.print("\nContato secundário, ex: email, tel.(Opcional): ");
         client.setSecondaryContact(UserInterface.scanner.nextLine());
 
-        
+        Main.clientRepository.create(client);
     }
 }
