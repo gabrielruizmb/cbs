@@ -73,6 +73,9 @@ public class Client {
         this.secondaryContact = secondaryContact;
     }
 
+    public Client() {
+    }
+    
     public Client(UUID id, String name, String phone, String adress, String secondaryContact) {
         this.id = id;
         this.name = name;
@@ -80,4 +83,5 @@ public class Client {
         this.adress = adress;
         this.secondaryContact = secondaryContact;
     }
+
 }

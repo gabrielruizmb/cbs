@@ -1,5 +1,7 @@
 package com.example.features.client;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 public class ClientRepository {
@@ -13,5 +15,10 @@ public class ClientRepository {
         em.getTransaction().begin();
         em.persist(client);
         em.getTransaction().commit();
+    }
+
+    public List<Client> getAll() {
+        return em.createQuery("SELECT c FROM Client c", Client.class)
+                 .getResultList();
     }
 }

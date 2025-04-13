@@ -38,9 +38,13 @@ public class UserInterface {
             
                 default:
                     System.out.print("\nOpção inválida!\n");
-                    // Limpa o buffer do teclado.
+
+                    // Limpa o buffer do teclado para 
+                    // poder ler a próxima linha.
                     scanner.nextLine(); 
+
                     System.out.print("\nPressione Enter para continuar . . .");
+                    
                     // Espera o usuário pressionar "Enter" para continuar.
                     scanner.nextLine(); 
                     break;
@@ -76,6 +80,7 @@ public class UserInterface {
                     break;
                 
                 case 4:
+                    ClientCrud.getAll();
                     break;
 
                 case 5:
