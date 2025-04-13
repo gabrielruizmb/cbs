@@ -37,16 +37,24 @@ public class Client {
         return name;
     }
 
-    public void setName(String name) {
+    public boolean setName(String name) {
+        if (name.isBlank())
+            return false;
+
         this.name = name;
+        return true;    
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public boolean setPhone(String phone) {
+        if (phone.isBlank())
+            return false;
+
         this.phone = phone;
+        return true;
     }
 
     public String getAdress() {
