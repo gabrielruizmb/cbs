@@ -30,6 +30,7 @@ public class UserInterface {
                     break;
 
                 case 3:
+                    userManual();
                     break;
                 
                 case 4:
@@ -95,5 +96,16 @@ public class UserInterface {
             }
             
         }
+    }
+
+    public static void userManual() {
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
+        System.out.print("~~~ Manual do usuário ~~~ \n\n");
+        System.out.print("1)Navegue pelo sistema utilizando o teclado. \n");
+
+        scanner.nextLine();
+        System.out.print("\nPressione Enter para voltar . . .");
+        scanner.nextLine();
     }
 }
