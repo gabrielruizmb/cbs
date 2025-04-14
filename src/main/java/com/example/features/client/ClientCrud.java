@@ -43,29 +43,52 @@ public class ClientCrud {
         UserInterface.scanner.nextLine();
     }
 
-    public static void getAll() {
+    public static void listAll() {
         List<Client> clients = Main.clientRepository.getAll();
-
+    
         System.out.print("\n==============================\n");
         System.out.print("--- Sistema da Cris Ballon --- \n\n");
         System.out.print("~~~ Lista de clientes ~~~ \n\n");
-
+    
         for (Client client : clients) {
+            System.out.printf("ID: %d \n", client.getId());
             System.out.printf("Nome: %s \n", client.getName());
             System.out.printf("Telefone: %s \n", client.getPhone());
-
+    
             if (!client.getAdress().isBlank())
                 System.out.printf("Endereço: %s \n", client.getAdress());
-
+    
             if (!client.getSecondaryContact().isBlank())
                 System.out.printf("Contato secundário: %s \n", 
                                   client.getSecondaryContact());
-
+    
             System.out.print("\n---------------------------------------\n\n");
         }
+    }
+
+    public static void getAll() {
+        listAll();
 
         UserInterface.scanner.nextLine();
         System.out.print("Pressione Enter para voltar . . .");
         UserInterface.scanner.nextLine();
+    }
+
+    public static void delete() {
+        listAll();
+        while (true) {
+            System.out.print("Escolha um cliente pelo ID para excluir: ");
+            try {
+                Client client = Main.clientRepository.getById(UserInterface.scanner.nextLong());
+                Main.clientRepository.delete(client);
+                System.out.print("\nCliente excluído com sucesso!\n\n");
+                System.out.print("Pressione Enter para continuar . . .");
+                UserInterface.scanner.nextLine();
+                break;
+            } catch(Exception exception) {
+                System.out.print("ID inválido! Tente novamente . . .\n");
+            }
+        }
+
     }
 }

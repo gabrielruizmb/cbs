@@ -21,4 +21,14 @@ public class ClientRepository {
         return em.createQuery("SELECT c FROM Client c", Client.class)
                  .getResultList();
     }
+
+    public Client getById(Long id) {
+        return em.find(Client.class, id);
+    }
+
+    public void delete(Client client) {
+        em.getTransaction().begin();
+        em.remove(client);
+        em.getTransaction().commit();
+    }
 }
