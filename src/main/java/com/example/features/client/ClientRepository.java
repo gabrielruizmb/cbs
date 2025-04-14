@@ -26,6 +26,12 @@ public class ClientRepository {
         return em.find(Client.class, id);
     }
 
+    public void update(Client client) {
+        em.getTransaction().begin();
+        em.merge(client);
+        em.getTransaction().commit();
+    }
+
     public void delete(Client client) {
         em.getTransaction().begin();
         em.remove(client);

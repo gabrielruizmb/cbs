@@ -6,7 +6,7 @@ import com.example.Main;
 import com.example.features.userinterface.UserInterface;
 
 public class ClientCrud {
-    public static void createClient() {
+    public static void create() {
         Client client = new Client(null, null, null, null, null);
 
         System.out.print("\n==============================\n");
@@ -74,11 +74,56 @@ public class ClientCrud {
         UserInterface.scanner.nextLine();
     }
 
+    public static void update() {
+        listAll();
+    
+        System.out.print("Escolha um cliente pelo ID para editar: ");
+    
+        Client client = Main.clientRepository
+                            .getById(UserInterface.scanner.nextLong());
+        
+        if (client == null) {
+            System.out.print("\nID inválido! Tente novamente.\n\n");
+            UserInterface.scanner.nextLine();
+        }
+        else {
+            System.out.print("Novo nome: ");
+            UserInterface.scanner.nextLine();   // Limpa o buffer do teclado.
+    
+            // Enquanto o nome estiver em branco, avisa ao 
+            // usuário e pede para ele informar novamente.
+            while (!client.setName(UserInterface.scanner.nextLine())) {
+                System.out.print("O nome não pode ficar em branco!\nNome: ");
+            }
+            
+            System.out.print("Novo telefone: ");
+            // Enquanto o telefone estiver em branco, avisa ao 
+            // usuário e pede para ele informar novamente.
+            while (!client.setPhone(UserInterface.scanner.nextLine())) {
+                System.out.print("O telefone não pode ficar em branco!\n");
+                System.out.print("Telefone: ");
+            }
+    
+            System.out.print("Novo endereço(opcional): ");
+            client.setAdress(UserInterface.scanner.nextLine());
+    
+            System.out.print("Novo contato secundário, ");
+            System.out.print("ex: email, tel.(Opcional): ");
+            client.setSecondaryContact(UserInterface.scanner.nextLine());
+            
+            Main.clientRepository.update(client);
+            System.out.print("\nCliente editado com sucesso!\n\n");
+        }
+    
+        System.out.print("Pressione Enter para voltar . . .\n");
+        UserInterface.scanner.nextLine();
+    }
+
     public static void delete() {
         listAll();
-
+    
         System.out.print("Escolha um cliente pelo ID para excluir: ");
-
+    
         Client client = Main.clientRepository
                             .getById(UserInterface.scanner.nextLong());
         
@@ -88,7 +133,7 @@ public class ClientCrud {
             Main.clientRepository.delete(client);
             System.out.print("\nCliente excluído com sucesso!\n\n");
         }
-
+    
         UserInterface.scanner.nextLine();
         System.out.print("Pressione Enter para voltar . . .\n");
         UserInterface.scanner.nextLine();

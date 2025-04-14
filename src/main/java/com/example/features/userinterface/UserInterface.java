@@ -71,10 +71,11 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:    
-                    ClientCrud.createClient();              
+                    ClientCrud.create();              
                     break;
 
                 case 2:
+                    ClientCrud.update();
                     break;
 
                 case 3:
