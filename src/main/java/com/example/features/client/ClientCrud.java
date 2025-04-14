@@ -76,19 +76,21 @@ public class ClientCrud {
 
     public static void delete() {
         listAll();
-        while (true) {
-            System.out.print("Escolha um cliente pelo ID para excluir: ");
-            try {
-                Client client = Main.clientRepository.getById(UserInterface.scanner.nextLong());
-                Main.clientRepository.delete(client);
-                System.out.print("\nCliente excluído com sucesso!\n\n");
-                System.out.print("Pressione Enter para continuar . . .");
-                UserInterface.scanner.nextLine();
-                break;
-            } catch(Exception exception) {
-                System.out.print("ID inválido! Tente novamente . . .\n");
-            }
+
+        System.out.print("Escolha um cliente pelo ID para excluir: ");
+
+        Client client = Main.clientRepository
+                            .getById(UserInterface.scanner.nextLong());
+        
+        if (client == null)
+            System.out.print("\nID inválido! Tente novamente.\n\n");
+        else {
+            Main.clientRepository.delete(client);
+            System.out.print("\nCliente excluído com sucesso!\n\n");
         }
 
+        UserInterface.scanner.nextLine();
+        System.out.print("Pressione Enter para voltar . . .\n");
+        UserInterface.scanner.nextLine();
     }
 }

@@ -74,7 +74,8 @@ public class Client {
     public Client() {
     }
     
-    public Client(Long id, String name, String phone, String adress, String secondaryContact) {
+    public Client(Long id, String name, String phone, String adress, 
+        String secondaryContact) {
         this.id = id;
         this.name = name;
         this.phone = phone;
