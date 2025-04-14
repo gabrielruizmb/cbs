@@ -12,7 +12,7 @@
 // import javax.persistence.JoinColumn;
 // import javax.persistence.OneToOne;
 
-// import com.example.features.Client.Client;
+// import com.example.features.client.Client;
 
 // @Entity
 // public class Order {

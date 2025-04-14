@@ -30,6 +30,7 @@ public class UserInterface {
                     break;
 
                 case 3:
+                    userManual();
                     break;
                 
                 case 4:
@@ -38,9 +39,13 @@ public class UserInterface {
             
                 default:
                     System.out.print("\nOpção inválida!\n");
-                    // Limpa o buffer do teclado.
+
+                    // Limpa o buffer do teclado para 
+                    // poder ler a próxima linha.
                     scanner.nextLine(); 
+
                     System.out.print("\nPressione Enter para continuar . . .");
+                    
                     // Espera o usuário pressionar "Enter" para continuar.
                     scanner.nextLine(); 
                     break;
@@ -66,16 +71,19 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:    
-                    ClientCrud.createClient();              
+                    ClientCrud.create();              
                     break;
 
                 case 2:
+                    ClientCrud.update();
                     break;
 
                 case 3:
+                    ClientCrud.delete();
                     break;
                 
                 case 4:
+                    ClientCrud.getAll();
                     break;
 
                 case 5:
@@ -90,5 +98,16 @@ public class UserInterface {
             }
             
         }
+    }
+
+    public static void userManual() {
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
+        System.out.print("~~~ Manual do usuário ~~~ \n\n");
+        System.out.print("1)Navegue pelo sistema utilizando o teclado. \n");
+
+        scanner.nextLine();
+        System.out.print("\nPressione Enter para voltar . . .");
+        scanner.nextLine();
     }
 }

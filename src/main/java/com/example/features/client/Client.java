@@ -1,7 +1,5 @@
 package com.example.features.client;
 
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +11,7 @@ public class Client {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -25,11 +23,11 @@ public class Client {
 
     private String secondaryContact;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,11 +71,16 @@ public class Client {
         this.secondaryContact = secondaryContact;
     }
 
-    public Client(UUID id, String name, String phone, String adress, String secondaryContact) {
+    public Client() {
+    }
+    
+    public Client(Long id, String name, String phone, String adress, 
+        String secondaryContact) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.adress = adress;
         this.secondaryContact = secondaryContact;
     }
+
 }
