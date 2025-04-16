@@ -2,6 +2,7 @@ package com.example.features.client;
 
 import com.example.Main;
 import com.example.features.userinterface.UserInterface;
+import java.util.*;
 
 public class ClientCrud {
     public static void createClient() {
@@ -35,5 +36,27 @@ public class ClientCrud {
         client.setSecondaryContact(UserInterface.scanner.nextLine());
 
         Main.clientRepository.create(client);
+    }
+
+    public static void listClients(){
+        List<Client> clientz = Main.clientRepository.findAll();
+
+        if(clientz.isEmpty()){
+            System.out.println("\nNenhum cliente cadastrado.");
+        }else{
+            System.out.println("\nLista de clientes cadastrados:");
+            for(Client c : clientz){
+                System.out.print("\n==============================\n");
+                System.out.println("ID: " + c.getId());
+                System.out.println("Nome: " + c.getName());
+                System.out.println("Telefone: " + c.getPhone());
+                System.out.println("Endereço: " + c.getAdress());
+                System.out.println("Contato secundário: " + c.getSecondaryContact());
+            }
+        }
+
+        System.out.println("\nPressione >Enter< para retornar ao menu anterior");
+        UserInterface.scanner.nextLine();
+        UserInterface.scanner.nextLine();
     }
 }

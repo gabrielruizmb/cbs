@@ -1,35 +1,35 @@
-<!-- Arquivo que faz a aplicação se conectar ao banco de dados -->
+    <!-- Arquivo que faz a aplicação se conectar ao banco de dados -->
 
-<hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">
-            org.postgresql.Driver
-        </property>
+    <hibernate-configuration>
+        <session-factory>
+            <property name="hibernate.connection.driver_class">
+                org.postgresql.Driver
+            </property>
 
-        <!-- Endereço do nosso banco de dados -->
-        <property name="hibernate.connection.url">
-            jdbc:postgresql://localhost:5432/cris_ballon_system
-        </property>
+            <!-- Endereço do nosso banco de dados -->
+            <property name="hibernate.connection.url">
+                jdbc:postgresql://localhost:5432/cris_ballon_system
+            </property>
 
-        <!-- Usuário dono do banco -->
-        <property name="hibernate.connection.username">mypguser</property>
+            <!-- Usuário dono do banco -->
+            <property name="hibernate.connection.username">mypguse</property>
 
-        <!-- Senha do banco deste usuário -->
-        <property name="hibernate.connection.password">postgres</property>
-        
-        <property name="hibernate.dialect">
-            org.hibernate.dialect.PostgreSQLDialect
-        </property>
-        
-        <!-- Modo de operação, ex: criar banco do zero, atualizar -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        
-        <property name="hibernate.show_sql">true</property>
-        
-        <property name="hibernate.format_sql">true</property>
-        
-        <mapping class="com.example.features.client.Client"/>
+            <!-- Senha do banco deste usuário -->
+            <property name="hibernate.connection.password">postgres</property>
+            
+            <property name="hibernate.dialect">
+                org.hibernate.dialect.PostgreSQLDialect
+            </property>
+            
+            <!-- Modo de operação, ex: criar banco do zero, atualizar -->
+            <property name="hibernate.hbm2ddl.auto">create</property> <!--tava update mudei pra create pq as tabelasnao foram criadas-->
+            
+            <property name="hibernate.show_sql">true</property>
+            
+            <property name="hibernate.format_sql">true</property>
+            
+            <mapping class="com.example.features.client.Client"/>
 
-        <!-- <mapping class="com.example.features.order.Order"/> -->
-    </session-factory>
-</hibernate-configuration>
+            <!-- <mapping class="com.example.features.order.Order"/> -->
+        </session-factory>
+    </hibernate-configuration>

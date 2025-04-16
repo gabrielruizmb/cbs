@@ -1,7 +1,6 @@
 package com.example.features.userinterface;
 
-import java.util.Scanner;
-
+import java.util.*;
 import com.example.features.client.ClientCrud;
 
 public class UserInterface {
@@ -76,6 +75,7 @@ public class UserInterface {
                     break;
                 
                 case 4:
+                    ClientCrud.listClients();
                     break;
 
                 case 5:

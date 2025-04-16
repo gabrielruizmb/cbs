@@ -17,6 +17,8 @@ public class CustomizerFactory {
         SessionFactory sessionFactory = new Configuration()
             .configure("hibernate.cfg.xml")
             .buildSessionFactory();
+            sessionFactory.openSession().close(); //forcando o hibernate a inicializar o mapeamento
+
 
         emf = sessionFactory.unwrap(EntityManagerFactory.class);
     }

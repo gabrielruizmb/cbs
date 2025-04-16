@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+//client tava com c maiusculo, o postgresql transforma tudo em minusculo mas o hibernate procura o nome exato
+@Table(name = "client")
 public class Client {
     
     @Id

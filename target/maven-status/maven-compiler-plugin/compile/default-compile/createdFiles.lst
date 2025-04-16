@@ -1,0 +1,6 @@
+com\example\configs\CustomizerFactory.class
+com\example\features\client\Client.class
+com\example\Main.class
+com\example\features\client\ClientRepository.class
+com\example\features\client\ClientCrud.class
+com\example\features\userinterface\UserInterface.class
