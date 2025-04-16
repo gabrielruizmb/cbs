@@ -29,7 +29,17 @@
         <property name="hibernate.format_sql">true</property>
         
         <mapping class="com.example.features.client.Client"/>
+        <property name="hibernate.hbm2ddl.auto">update</property> 
+        <!-- Estratégia para atualizar o schema automaticamente -->
 
+        <property name="hibernate.show_sql">true</property>
+        <!-- Mostra os SQLs no console (requisito do projeto) -->
+
+        <property name="hibernate.format_sql">true</property>
+        <!-- Formata os SQLs para melhor legibilidade -->
+
+       
+        <mapping class="com.example.features.client.Client"/>
         <!-- <mapping class="com.example.features.order.Order"/> -->
     </session-factory>
 </hibernate-configuration>
