@@ -43,7 +43,7 @@ public class ClientRepository {
         em.getTransaction().commit();
     }
 
-    // CONSULTA COM LIKE - Busca por nome (requisito do projeto)
+    // CONSULTA COM LIKE - Busca por nome 
     public List<Client> findByNameLike(String name) {
         return em.createQuery(
             "SELECT c FROM Client c WHERE c.name LIKE :name", Client.class)
@@ -51,7 +51,7 @@ public class ClientRepository {
             .getResultList();
     }
 
-    // CONSULTA COM COUNT - Total de clientes (requisito do projeto)
+    // CONSULTA COM COUNT - Total de clientes 
     public Long countClients() {
         return em.createQuery(
             "SELECT COUNT(c) FROM Client c", Long.class)
