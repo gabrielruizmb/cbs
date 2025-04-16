@@ -1,10 +1,7 @@
 package com.example.features.client;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Client {
@@ -19,10 +16,23 @@ public class Client {
     @Column(nullable = false)
     private String phone;
 
-    private String adress;
-
+    private String adress; 
     private String secondaryContact;
 
+    
+    public Client() {
+    }
+    
+    public Client(Long id, String name, String phone, String adress, 
+        String secondaryContact) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.adress = adress;
+        this.secondaryContact = secondaryContact;
+    }
+
+    
     public Long getId() {
         return id;
     }
@@ -70,17 +80,4 @@ public class Client {
     public void setSecondaryContact(String secondaryContact) {
         this.secondaryContact = secondaryContact;
     }
-
-    public Client() {
-    }
-    
-    public Client(Long id, String name, String phone, String adress, 
-        String secondaryContact) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.adress = adress;
-        this.secondaryContact = secondaryContact;
-    }
-
 }
