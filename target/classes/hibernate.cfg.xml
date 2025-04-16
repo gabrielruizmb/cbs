@@ -22,14 +22,16 @@
         </property>
         
         <!-- Modo de operação, ex: criar banco do zero, atualizar -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Estratégia para atualizar o schema automaticamente -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
         
         <property name="hibernate.show_sql">true</property>
-        
-        <property name="hibernate.format_sql">true</property>
-        
-        <mapping class="com.example.features.client.Client"/>
+        <!-- Mostra os SQLs no console  -->
 
+        <property name="hibernate.format_sql">true</property>
+        <!-- Formata os SQLs para melhor legibilidade -->
+       
+        <mapping class="com.example.features.client.Client"/>
         <!-- <mapping class="com.example.features.order.Order"/> -->
     </session-factory>
 </hibernate-configuration>

@@ -1,7 +1,6 @@
 package com.example.features.client;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 public class Client {
