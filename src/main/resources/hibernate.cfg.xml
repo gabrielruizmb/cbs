@@ -33,7 +33,7 @@
         <!-- Estratégia para atualizar o schema automaticamente -->
 
         <property name="hibernate.show_sql">true</property>
-        <!-- Mostra os SQLs no console (requisito do projeto) -->
+        <!-- Mostra os SQLs no console  -->
 
         <property name="hibernate.format_sql">true</property>
         <!-- Formata os SQLs para melhor legibilidade -->
