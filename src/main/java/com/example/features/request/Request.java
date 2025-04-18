@@ -27,4 +27,26 @@ public class Request {
 
     @Column(nullable = false)
     private String description;
+
+    public Client getClient() {
+        return this.client;
+    }
+
+    public boolean setClient(Client client) {
+        if (client == null)
+            return false;
+
+        this.client = client;
+        return true;
+    }
+
+    public Request() {
+    }
+
+    public Request(Long id, Client client, String status, String description) {
+        this.id = id;
+        this.client = client;
+        this.status = status;
+        this.description = description;
+    }
 }
