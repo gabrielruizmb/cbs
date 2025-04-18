@@ -23,7 +23,7 @@
         
         <!-- Modo de operação, ex: criar banco do zero, atualizar -->
         <!-- Estratégia para atualizar o schema automaticamente -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         
         <property name="hibernate.show_sql">true</property>
         <!-- Mostra os SQLs no console  -->
@@ -32,6 +32,6 @@
         <!-- Formata os SQLs para melhor legibilidade -->
        
         <mapping class="com.example.features.client.Client"/>
-        <!-- <mapping class="com.example.features.order.Order"/> -->
+        <mapping class="com.example.features.request.Request"/>
     </session-factory>
 </hibernate-configuration>
