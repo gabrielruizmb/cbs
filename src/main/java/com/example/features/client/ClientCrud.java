@@ -2,11 +2,11 @@ package com.example.features.client;
 
 import java.util.List;
 
-import com.example.Main;
 import com.example.features.userinterface.UserInterface;
 
 public class ClientCrud {
     public static void create() {
+        ClientRepository clientRepository = new ClientRepository(); 
         Client client = new Client(null, null, null, null, null);
 
         System.out.print("\n==============================\n");
@@ -36,7 +36,7 @@ public class ClientCrud {
         System.out.print("Contato secundário, ex: email, tel.(Opcional): ");
         client.setSecondaryContact(UserInterface.scanner.nextLine());
 
-        Main.clientRepository.create(client);
+        clientRepository.create(client);
 
         System.out.print("\nCliente criado com sucesso!\n\n");
         System.out.print("Pressione Enter para continuar . . .");
@@ -44,7 +44,8 @@ public class ClientCrud {
     }
 
     public static void listAll() {
-        List<Client> clients = Main.clientRepository.getAll();
+        ClientRepository clientRepository = new ClientRepository(); 
+        List<Client> clients = clientRepository.getAll();
     
         System.out.print("\n==============================\n");
         System.out.print("--- Sistema da Cris Ballon --- \n\n");
@@ -82,7 +83,8 @@ public class ClientCrud {
         Long id = UserInterface.scanner.nextLong();
         UserInterface.scanner.nextLine(); // Limpa o buffer
         
-        Client client = Main.clientRepository.getById(id);
+        ClientRepository clientRepository = new ClientRepository(); 
+        Client client = clientRepository.getById(id);
         
         if (client == null) {
             System.out.print("\nID inválido! Tente novamente.\n\n");
@@ -121,7 +123,7 @@ public class ClientCrud {
             client.setSecondaryContact(newContact);
         }
         
-        Main.clientRepository.update(client);
+        clientRepository.update(client);
         System.out.print("\nCliente editado com sucesso!\n\n");
         waitForEnter();
     }
@@ -135,7 +137,8 @@ public class ClientCrud {
         Long id = UserInterface.scanner.nextLong();
         UserInterface.scanner.nextLine(); // Limpa o buffer
         
-        Client client = Main.clientRepository.getById(id);
+        ClientRepository clientRepository = new ClientRepository(); 
+        Client client = clientRepository.getById(id);
         
         if (client == null) {
             System.out.print("\nID inválido! Tente novamente.\n\n");
@@ -147,7 +150,7 @@ public class ClientCrud {
         String confirm = UserInterface.scanner.nextLine();
         
         if (confirm.equalsIgnoreCase("s")) {
-            Main.clientRepository.delete(client);
+            clientRepository.delete(client);
             System.out.print("\nCliente excluído com sucesso!\n\n");
         } else {
             System.out.print("\nOperação cancelada!\n\n");
