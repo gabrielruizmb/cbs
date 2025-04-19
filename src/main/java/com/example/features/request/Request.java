@@ -32,6 +32,10 @@ public class Request {
     @Column(nullable = false)
     private String description;
 
+    public Long getId() {
+        return this.id;
+    }
+
     public Client getClient() {
         return this.client;
     }

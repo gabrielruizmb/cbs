@@ -3,7 +3,6 @@ package com.example.features.userinterface;
 import java.util.Scanner;
 
 import com.example.features.client.ClientCrud;
-import com.example.features.request.Request;
 import com.example.features.request.RequestCrud;
 
 public class UserInterface {
@@ -124,7 +123,7 @@ public class UserInterface {
                     break;
 
                 case 2:
-                    ClientCrud.update();
+                    RequestCrud.update();
                     break;
 
                 case 3:
@@ -132,7 +131,7 @@ public class UserInterface {
                     break;
                 
                 case 4:
-                    ClientCrud.getAll();
+                    RequestCrud.getAll();
                     break;
 
                 case 5:

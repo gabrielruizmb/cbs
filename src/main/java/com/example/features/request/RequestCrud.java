@@ -1,5 +1,7 @@
 package com.example.features.request;
 
+import java.util.List;
+
 import com.example.features.client.Client;
 import com.example.features.client.ClientCrud;
 import com.example.features.client.ClientRepository;
@@ -42,5 +44,52 @@ public class RequestCrud {
         System.out.print("Pedido criado com sucesso!\n\n");
         System.out.print("Pressione 'Enter' para voltar . . .");
         UserInterface.scanner.nextLine();
+    }
+
+    public static void listAll() {
+        RequestRepository requestRepository = new RequestRepository();
+        List<Request> requests = requestRepository.getAll();
+
+        for (Request request : requests) {
+            System.out.printf("ID do pedido: %d \n\n", request.getId());
+            System.out.printf("Nome do cliente: %s \n\n", request.getClient().getName());
+            System.out.printf("Status do pedido: %s \n\n", request.getStatus());
+            System.out.printf("Descrição do pedido: %s \n\n", request.getDescription());
+            System.out.print("========================================\n\n");
+        }
+    }
+
+    public static void getAll() {
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
+        System.out.print("~ Lista de pedidos~ \n\n");
+
+        listAll();
+
+        UserInterface.scanner.nextLine();
+        System.out.print("Pressione 'Enter' para voltar . . .");
+        UserInterface.scanner.nextLine();
+    }
+
+    public static void update() {
+        RequestRepository requestRepository = new RequestRepository();
+        Request request = new Request();
+
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
+        System.out.print("~ Editar pedido ~ \n\n");
+
+        listAll();
+
+        System.out.print("Escolha um pedido pelo ID para editar: ");
+        request = requestRepository.getById(UserInterface.scanner.nextLong());
+
+        while (request == null) {
+            System.out.print("ID de pedido inválido!\n");
+            System.out.print("Escolha um pedido pelo ID ");
+            System.out.print("dentre os listados acima: ");
+            request = requestRepository
+                      .getById(UserInterface.scanner.nextLong());        
+        }
     }
 }
