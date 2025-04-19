@@ -74,6 +74,7 @@ public class RequestCrud {
     public static void update() {
         RequestRepository requestRepository = new RequestRepository();
         Request request = new Request();
+        int status = 0;
 
         System.out.print("\n==============================\n");
         System.out.print("--- Sistema da Cris Ballon --- \n\n");
@@ -85,11 +86,65 @@ public class RequestCrud {
         request = requestRepository.getById(UserInterface.scanner.nextLong());
 
         while (request == null) {
-            System.out.print("ID de pedido inválido!\n");
+            System.out.print("\nID de pedido inválido!\n");
             System.out.print("Escolha um pedido pelo ID ");
             System.out.print("dentre os listados acima: ");
             request = requestRepository
                       .getById(UserInterface.scanner.nextLong());        
         }
+
+        System.out.printf("Deseja alterar o status do pedido?(%s) (s/n)", request.getStatus());
+        if (UserInterface.scanner.next().equals("s")) {
+            System.out.print("Escolha um status dentre os seguintes: \n\n");
+            System.out.printf("1)%s \n", RequestStatus.STATUS1.getName());
+            System.out.printf("2)%s \n", RequestStatus.STATUS2.getName());
+            System.out.printf("3)%s \n", RequestStatus.STATUS3.getName());
+            System.out.printf("4)%s \n", RequestStatus.STATUS4.getName());
+            System.out.printf("5)%s \n", RequestStatus.STATUS5.getName());
+
+            while (status == 0) {
+                System.out.printf("\nNovo status(%s): ", request.getStatus());
+                status = UserInterface.scanner.nextInt();
+
+                switch (status) {
+                    case 1:
+                        request.setStatus(RequestStatus.STATUS1.getName());
+                        break;
+    
+                    case 2:
+                        request.setStatus(RequestStatus.STATUS2.getName());
+                        break;
+    
+                    case 3:
+                        request.setStatus(RequestStatus.STATUS3.getName());
+                        break;
+    
+                    case 4:
+                        request.setStatus(RequestStatus.STATUS4.getName());
+                        break;
+    
+                    case 5:
+                        request.setStatus(RequestStatus.STATUS5.getName());
+                        break;
+    
+                    default:
+                        status = 0;
+                        System.out.print("Status inválido! escolha novamente . . .");
+                        break;
+                }
+            }
+        }
+
+        System.out.printf("Deseja alterar a descrição do pedido(%s)? (s/n)", request.getDescription());
+        if (UserInterface.scanner.next().equals("s")) {
+            System.out.printf("Nova descrição(%s): ", request.getDescription());
+            UserInterface.scanner.nextLine();
+            request.setDescription(UserInterface.scanner.nextLine());
+        }
+
+        requestRepository.update(request);
+
+        System.out.print("Pedido atualizado!\n\n");
+        System.out.print("Pressione 'Enter' para voltar . . .");
     }
 }

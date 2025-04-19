@@ -16,6 +16,14 @@ public class RequestRepository {
         em.getTransaction().commit();
     }
 
+    public void update(Request request) {
+        EntityManager em = CustomizerFactory.getEntityManager();
+
+        em.getTransaction().begin();
+        em.merge(request);
+        em.getTransaction().commit();
+    }
+
     public List<Request> getAll() {
         EntityManager em = CustomizerFactory.getEntityManager();
 
