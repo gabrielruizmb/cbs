@@ -16,12 +16,31 @@ public class RequestCrud {
         System.out.print("--- Sistema da Cris Ballon --- \n\n");
         System.out.print("~ Novo pedido ~ \n\n");
 
-        // ClientCrud.getAll();
-        // System.out.print("Escolha um cliente pelo ID: ");
-        // while (client == null) {
-        //     client = clientRepository.getById(UserInterface.scanner.nextLong());
-        //     System.out.print("ID inválido!\n");
-        //     System.out.print("Escolha um cliente pelo ID: ");
-        // }
+        ClientCrud.listAll();
+        System.out.print("Escolha um cliente pelo ID: ");
+        client = clientRepository.getById(UserInterface.scanner.nextLong());
+
+        while (client == null) {
+            System.out.print("ID inválido!\n");
+            System.out.print("Escolha um cliente pelo ID ");
+            System.out.print("dentre os listados acima: ");
+            client = clientRepository.getById(UserInterface.scanner.nextLong());
+        }
+
+        request.setClient(client);
+        request.setStatus(RequestStatus.STATUS1.getName());
+
+        System.out.print("Descrição do pedido: ");
+        UserInterface.scanner.nextLine();
+        while (!request.setDescription(UserInterface.scanner.nextLine())) {
+            System.out.print("A descrição não pode ficar em branco!\n");
+            System.out.print("Descrição do pedido: ");
+        }
+
+        requestRepository.create(request);
+        
+        System.out.print("Pedido criado com sucesso!\n\n");
+        System.out.print("Pressione 'Enter' para voltar . . .");
+        UserInterface.scanner.nextLine();
     }
 }

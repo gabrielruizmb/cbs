@@ -19,7 +19,11 @@ public class Request {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    @JoinColumn(
+        name = "client_id", 
+        referencedColumnName = "id", 
+        nullable = false
+    )
     private Client client;
 
     @Column(nullable = false)
@@ -37,6 +41,30 @@ public class Request {
             return false;
 
         this.client = client;
+        return true;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public boolean setStatus(String status) {
+        if (status.isBlank())
+            return false;
+
+        this.status = status;
+        return true;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public boolean setDescription(String description) {
+        if (description.isBlank())
+            return false;
+
+        this.description = description;
         return true;
     }
 

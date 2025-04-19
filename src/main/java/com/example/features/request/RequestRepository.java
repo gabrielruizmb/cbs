@@ -10,7 +10,7 @@ public class RequestRepository {
         EntityManager em = CustomizerFactory.getEntityManager();
 
         em.getTransaction().begin();
-        em.persist(request);
+        em.merge(request);
         em.getTransaction().commit();
     }
 }

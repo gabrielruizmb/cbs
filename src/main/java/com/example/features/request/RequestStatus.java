@@ -1,7 +1,7 @@
 package com.example.features.request;
 
 public enum RequestStatus {
-    STATUS1("Aberto", 1),
+    STATUS1("Em Aberto", 1),
     STATUS2("Em produção", 2),
     STATUS3("Concluído", 3),
     STATUS4("Entregue", 4),

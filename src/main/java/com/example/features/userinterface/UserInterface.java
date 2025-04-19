@@ -29,6 +29,7 @@ public class UserInterface {
                     break;
 
                 case 2:
+                    requestsMenu();
                     break;
 
                 case 3:
