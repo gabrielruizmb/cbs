@@ -127,7 +127,7 @@ public class UserInterface {
                     break;
 
                 case 3:
-                    ClientCrud.delete();
+                    RequestCrud.delete();
                     break;
                 
                 case 4:

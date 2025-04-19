@@ -147,4 +147,35 @@ public class RequestCrud {
         System.out.print("Pedido atualizado!\n\n");
         System.out.print("Pressione 'Enter' para voltar . . .");
     }
+
+    public static void delete() {
+        RequestRepository requestRepository = new RequestRepository();
+        Request request = new Request();
+
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
+        System.out.print("~ Excluir pedido ~ \n\n");
+
+        listAll();
+
+        System.out.print("Escolha um pedido pelo ID para excluir: ");
+        request = requestRepository.getById(UserInterface.scanner.nextLong());
+
+        while (request == null) {
+            System.out.print("\nID de pedido inválido!\n");
+            System.out.print("Escolha um pedido pelo ID para excluir: ");
+            request = requestRepository.getById(UserInterface.scanner.nextLong());
+        }
+
+        System.out.print("Deseja realmente excluir este pedido(s/n)? ");
+        if (UserInterface.scanner.next().equals("s")) {
+            requestRepository.delete(request);
+            System.out.print("\nPedido excluido!\n\n");
+        } else
+            System.out.print("\nOperação cancelada.\n\n");
+        
+        UserInterface.scanner.nextLine();
+        System.out.print("Pressione 'Enter' para voltar ao menu . . .");    
+        UserInterface.scanner.nextLine();
+    }
 }

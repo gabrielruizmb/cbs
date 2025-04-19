@@ -36,4 +36,12 @@ public class RequestRepository {
 
         return em.find(Request.class, id);
     }
+
+    public void delete(Request request) {
+        EntityManager em = CustomizerFactory.getEntityManager();
+
+        em.getTransaction().begin();
+        em.remove(request);
+        em.getTransaction().commit();
+    }
 }
