@@ -47,8 +47,6 @@ public class ClientCrud {
         ClientRepository clientRepository = new ClientRepository(); 
         List<Client> clients = clientRepository.getAll();
     
-        System.out.print("\n==============================\n");
-        System.out.print("--- Sistema da Cris Ballon --- \n\n");
         System.out.print("~ Lista de clientes ~ \n\n");
     
         for (Client client : clients) {
@@ -67,6 +65,8 @@ public class ClientCrud {
     }
 
     public static void getAll() {
+        System.out.print("\n==============================\n");
+        System.out.print("--- Sistema da Cris Ballon --- \n\n");
         listAll();
 
         UserInterface.scanner.nextLine();
