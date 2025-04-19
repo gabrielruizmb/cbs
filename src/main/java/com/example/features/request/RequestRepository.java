@@ -41,7 +41,7 @@ public class RequestRepository {
         EntityManager em = CustomizerFactory.getEntityManager();
 
         em.getTransaction().begin();
-        em.remove(em.contains(request) ? request : em.merge(request));
+        em.remove(request);
         em.getTransaction().commit();
     }
 }

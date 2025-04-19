@@ -167,8 +167,15 @@ public class RequestCrud {
             request = requestRepository.getById(UserInterface.scanner.nextLong());
         }
 
-        requestRepository.delete(request);
-        System.out.print("Pedido excluido!\n\n");
-        System.out.print("Pressione 'Enter' para voltar ao menu . . .");         
+        System.out.print("Deseja realmente excluir este pedido(s/n)? ");
+        if (UserInterface.scanner.next().equals("s")) {
+            requestRepository.delete(request);
+            System.out.print("\nPedido excluido!\n\n");
+        } else
+            System.out.print("\nOperação cancelada.\n\n");
+        
+        UserInterface.scanner.nextLine();
+        System.out.print("Pressione 'Enter' para voltar ao menu . . .");    
+        UserInterface.scanner.nextLine();
     }
 }
