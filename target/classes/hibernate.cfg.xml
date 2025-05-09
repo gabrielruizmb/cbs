@@ -14,22 +14,24 @@
             <!-- Usuário dono do banco -->
             <property name="hibernate.connection.username">mypguse</property>
 
-            <!-- Senha do banco deste usuário -->
-            <property name="hibernate.connection.password">postgres</property>
-            
-            <property name="hibernate.dialect">
-                org.hibernate.dialect.PostgreSQLDialect
-            </property>
-            
-            <!-- Modo de operação, ex: criar banco do zero, atualizar -->
-            <property name="hibernate.hbm2ddl.auto">create</property> <!--tava update mudei pra create pq as tabelasnao foram criadas-->
-            
-            <property name="hibernate.show_sql">true</property>
-            
-            <property name="hibernate.format_sql">true</property>
-            
-            <mapping class="com.example.features.client.Client"/>
+        <!-- Senha do banco deste usuário -->
+        <property name="hibernate.connection.password">postgres</property>
+        
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.PostgreSQLDialect
+        </property>
+        
+        <!-- Modo de operação, ex: criar banco do zero, atualizar -->
+        <!-- Estratégia para atualizar o schema automaticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <property name="hibernate.show_sql">true</property>
+        <!-- Mostra os SQLs no console  -->
 
-            <!-- <mapping class="com.example.features.order.Order"/> -->
-        </session-factory>
-    </hibernate-configuration>
+        <property name="hibernate.format_sql">true</property>
+        <!-- Formata os SQLs para melhor legibilidade -->
+       
+        <mapping class="com.example.features.client.Client"/>
+        <mapping class="com.example.features.request.Request"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,4 +1,6 @@
-Sistema da Cris Ballon
+# Sistema da Cris Ballon
+
+  Sistema de gerenciamento de clientes e pedidos de arranjos de festa com balões e enfeites!
 
  - Para contribuir clone o projeto para uma pasta desejada, ex:
  - /Documentos/desenvolvimento: git clone git@github.com:gabrielruizmb/cbs.git
