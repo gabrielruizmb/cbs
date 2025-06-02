@@ -1,6 +1,9 @@
 package com.example.features.userinterface;
 
+import java.awt.Color;
 import java.util.Scanner;
+
+import javax.swing.JFrame;
 
 import com.example.features.client.ClientCrud;
 import com.example.features.request.RequestCrud;
@@ -11,9 +14,12 @@ public class UserInterface {
     // aplicação para ler o teclado do usuário.
     public static Scanner scanner = new Scanner(System.in);
     
-    public static void mainMenu() {
+    public static void mainMenu(JFrame window) {
         
         while (true) {
+
+            window.getContentPane().setBackground(Color.MAGENTA);
+
             System.out.print("\n==============================\n");
             System.out.print("--- Sistema da Cris Ballon --- \n\n");
             System.out.print("~~~ Menu principal ~~~ \n\n");
