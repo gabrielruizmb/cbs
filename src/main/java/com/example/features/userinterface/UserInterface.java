@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import com.example.features.client.ClientCrud;
 import com.example.features.request.RequestCrud;
@@ -19,6 +20,14 @@ public class UserInterface {
         while (true) {
 
             window.getContentPane().setBackground(Color.MAGENTA);
+
+            JLabel appLogo = new JLabel("--- Sistema da Cris Ballon ---");
+            appLogo.setBounds(280, 50, 200, 10);
+
+            window.add(appLogo);
+
+            window.revalidate();
+            window.repaint();
 
             System.out.print("\n==============================\n");
             System.out.print("--- Sistema da Cris Ballon --- \n\n");
