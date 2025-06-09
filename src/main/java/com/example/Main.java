@@ -10,12 +10,16 @@ public class Main {
         
         JFrame window = new JFrame();
 
-        window.setLayout(null);
-        window.setVisible(true);
-        window.setLocationRelativeTo(null);
-        window.setBounds(250, 50, 800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setTitle("Sistema da Cris ballon");
+        window.setSize(800, 600);
+        window.setVisible(true);
+
+        // window.setLayout(null);
+        // window.setVisible(true);
+        // window.setLocationRelativeTo(null);
+        // window.setBounds(250, 50, 800, 600);
+        // window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // window.setTitle("Sistema da Cris ballon");
 
         // Exibe o menu principal.
         UserInterface.mainMenu(window);   
