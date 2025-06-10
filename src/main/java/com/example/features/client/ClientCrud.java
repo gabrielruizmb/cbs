@@ -1,6 +1,12 @@
 package com.example.features.client;
 
+import java.awt.GridLayout;
 import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import com.example.features.userinterface.UserInterface;
 
@@ -41,6 +47,29 @@ public class ClientCrud {
         System.out.print("\nCliente criado com sucesso!\n\n");
         System.out.print("Pressione Enter para continuar . . .");
         UserInterface.scanner.nextLine();
+    }
+
+    public static void guiListAll(JFrame window) {
+        String[] clientsTableColumns = {
+            "ID", "Nome", "Telefone", "Endereço", "Contato secundário"
+        };
+        
+        ClientRepository clientRepository = new ClientRepository(); 
+        List<Client> clients = clientRepository.getAll();
+        Object[] clientsArray = clients.toArray();
+        Object[][] clientsMatrix = {clientsArray};
+
+        JPanel backgroundPanel = new JPanel();
+        backgroundPanel.setLayout(new GridLayout(1, 1));
+
+        JTable clientsTable = new JTable(clientsMatrix, clientsTableColumns);
+
+        JScrollPane scrollPane = new JScrollPane(clientsTable);
+        clientsTable.setFillsViewportHeight(true);
+
+        backgroundPanel.add(scrollPane);
+        window.add(backgroundPanel);
+
     }
 
     public static void listAll() {
