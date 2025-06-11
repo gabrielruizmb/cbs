@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import com.example.features.client.Client;
 import com.example.features.client.ClientCrud;
 import com.example.features.request.RequestCrud;
 
@@ -29,7 +30,7 @@ public class UserInterface {
         
         while (true) {
 
-            window.getContentPane().setBackground(Color.MAGENTA);
+            window.getContentPane().setBackground(Color.PINK);
 
             // JLabel appLogo = new JLabel("--- Sistema da Cris Ballon ---");
             // appLogo.setHorizontalAlignment(JLabel.CENTER);
@@ -55,6 +56,14 @@ public class UserInterface {
             JMenuItem clientsMenuEditClient = new JMenuItem("Editar cliente");
             JMenuItem clientsMenuRemoveClient = new JMenuItem("Remover cliente");
             JMenuItem clientsMenuListClients = new JMenuItem("Listar clientes");
+            clientsMenuListClients.addActionListener(new ActionListener() {
+                
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ClientCrud.guiListAll(window);
+                }
+
+            });
 
             clientsMenu.add(clientsMenuNewClient);
             clientsMenu.add(clientsMenuEditClient);
@@ -62,7 +71,18 @@ public class UserInterface {
             clientsMenu.add(clientsMenuListClients);
 
             JMenu ordersMenu = new JMenu("Pedidos");
-            
+
+            // JButton listClientsButton = new JButton("Listar clientes");
+            // listClientsButton.addActionListener(new ActionListener() {
+                
+            //     @Override
+            //     public void actionPerformed(ActionEvent e) {
+            //         ClientCrud.guiListAll(window);
+            //     }
+
+            // });
+
+            // menuBar.add(listClientsButton);
             menuBar.add(clientsMenu);
             menuBar.add(ordersMenu);
             window.setJMenuBar(menuBar);

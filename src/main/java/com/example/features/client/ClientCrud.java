@@ -1,5 +1,6 @@
 package com.example.features.client;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.List;
 
@@ -56,19 +57,22 @@ public class ClientCrud {
         
         ClientRepository clientRepository = new ClientRepository(); 
         List<Client> clients = clientRepository.getAll();
-        Object[] clientsArray = clients.toArray();
-        Object[][] clientsMatrix = {clientsArray};
+        Object[][] clientsMatrix = {clients.toArray()};
 
         JPanel backgroundPanel = new JPanel();
+        // backgroundPanel.setBounds(100, 100, 400, 400);
+        // backgroundPanel.setBackground(Color.GREEN);
+        // backgroundPanel.setSize(400, 400);
         backgroundPanel.setLayout(new GridLayout(1, 1));
 
         JTable clientsTable = new JTable(clientsMatrix, clientsTableColumns);
 
         JScrollPane scrollPane = new JScrollPane(clientsTable);
-        clientsTable.setFillsViewportHeight(true);
+        // clientsTable.setFillsViewportHeight(true);
 
         backgroundPanel.add(scrollPane);
-        window.add(backgroundPanel);
+
+        window.getContentPane().add(backgroundPanel);
 
     }
 
