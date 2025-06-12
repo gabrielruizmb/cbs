@@ -13,8 +13,8 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(800, 600);
         window.setVisible(true);
+        window.setLayout(null);
 
-        // window.setLayout(null);
         // window.setVisible(true);
         // window.setLocationRelativeTo(null);
         // window.setBounds(250, 50, 800, 600);
