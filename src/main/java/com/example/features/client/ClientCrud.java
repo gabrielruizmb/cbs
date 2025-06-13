@@ -56,29 +56,29 @@ public class ClientCrud {
 
     public static void guiListAll(JFrame window) {
 
-        ClientRepository clientRepository = new ClientRepository(); 
-        List<Client> clients = clientRepository.getAll();
+        // ClientRepository clientRepository = new ClientRepository(); 
+        // List<Client> clients = clientRepository.getAll();
 
-        String[] clientsTableColumns = {
-            "ID", "Nome", "Telefone", "Endereço", "Contato secundário"
-        };
+        // String[] clientsTableColumns = {
+        //     "ID", "Nome", "Telefone", "Endereço", "Contato secundário"
+        // };
         
-        Object[][] clientsMatrix = {clients.toArray()};
+        // Object[][] clientsMatrix = {clients.toArray()};
         
-        JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setBounds(100, 100, 800, 400);
-        // backgroundPanel.setBackground(Color.GREEN);
-        // backgroundPanel.setSize(400, 400);
-        backgroundPanel.setLayout(new GridLayout(1, 1));
+        // JPanel backgroundPanel = new JPanel();
+        // backgroundPanel.setBounds(100, 100, 800, 400);
+        // // backgroundPanel.setBackground(Color.GREEN);
+        // // backgroundPanel.setSize(400, 400);
+        // backgroundPanel.setLayout(new GridLayout(1, 1));
         
-        JTable clientsTable = new JTable(clientsMatrix, clientsTableColumns);
+        // JTable clientsTable = new JTable(clientsMatrix, clientsTableColumns);
         
-        JScrollPane scrollPane = new JScrollPane(clientsTable);
-        clientsTable.setFillsViewportHeight(true);
+        // JScrollPane scrollPane = new JScrollPane(clientsTable);
+        // clientsTable.setFillsViewportHeight(true);
         
-        backgroundPanel.add(scrollPane);
+        // backgroundPanel.add(scrollPane);
         
-        window.getContentPane().add(backgroundPanel);
+        // window.getContentPane().add(backgroundPanel);
         
         // ClientRepository clientRepository = new ClientRepository(); 
         // List<Client> clients = clientRepository.getAll();
