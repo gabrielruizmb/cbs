@@ -2,7 +2,6 @@ package com.example.features.client;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import java.util.*;
 
 import com.example.configs.CustomizerFactory;
 

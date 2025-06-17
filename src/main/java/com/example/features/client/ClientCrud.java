@@ -3,7 +3,6 @@ package com.example.features.client;
 import java.util.List;
 
 import com.example.features.userinterface.UserInterface;
-import java.util.*;
 
 public class ClientCrud {
     public static void create() {
@@ -166,7 +165,10 @@ public class ClientCrud {
     }
 
     public static void listClients(){
-        List<Client> clientz = Main.clientRepository.findAll();
+        ClientRepository clientRepository = new ClientRepository();
+
+        //Recuperando a lista de clientes pra poder usar ela depois
+        List<Client> clientz = clientRepository.getAll();
 
         if(clientz.isEmpty()){
             System.out.println("\nNenhum cliente cadastrado.");
