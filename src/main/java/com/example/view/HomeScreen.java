@@ -29,8 +29,8 @@ public class HomeScreen extends JFrame {
         add(btnExit);
 
         //Aqui é onde os botões chamam as funçoes do código
-        btnClients.addActionListener(e -> UserInterface.clientMenu()); //vão abrir o terminal pois a tela em swing ainda não foi criada
-        btnOrders.addActionListener(e -> UserInterface.requestsMenu());
+        btnClients.addActionListener(e -> new ClientMenuFrame().setVisible(true));
+        btnOrders.addActionListener(e -> UserInterface.requestsMenu()); //vão abrir o terminal pois a tela em swing ainda não foi criada
         bntManual.addActionListener(e -> UserInterface.userManual());
         btnExit.addActionListener(e -> System.exit(0));
 
