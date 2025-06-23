@@ -1,17 +1,6 @@
 package com.example.features.client;
 
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 import com.example.features.userinterface.UserInterface;
 
@@ -52,48 +41,6 @@ public class ClientCrud {
         System.out.print("\nCliente criado com sucesso!\n\n");
         System.out.print("Pressione Enter para continuar . . .");
         UserInterface.scanner.nextLine();
-    }
-
-    public static void guiListAll(JFrame window) {
-
-        // ClientRepository clientRepository = new ClientRepository(); 
-        // List<Client> clients = clientRepository.getAll();
-
-        // String[] clientsTableColumns = {
-        //     "ID", "Nome", "Telefone", "Endereço", "Contato secundário"
-        // };
-        
-        // Object[][] clientsMatrix = {clients.toArray()};
-        
-        // JPanel backgroundPanel = new JPanel();
-        // backgroundPanel.setBounds(100, 100, 800, 400);
-        // // backgroundPanel.setBackground(Color.GREEN);
-        // // backgroundPanel.setSize(400, 400);
-        // backgroundPanel.setLayout(new GridLayout(1, 1));
-        
-        // JTable clientsTable = new JTable(clientsMatrix, clientsTableColumns);
-        
-        // JScrollPane scrollPane = new JScrollPane(clientsTable);
-        // clientsTable.setFillsViewportHeight(true);
-        
-        // backgroundPanel.add(scrollPane);
-        
-        // window.getContentPane().add(backgroundPanel);
-        
-        // ClientRepository clientRepository = new ClientRepository(); 
-        // List<Client> clients = clientRepository.getAll();
-        // List<String> clientsNames = new ArrayList<>();
-        
-        // for (Client client : clients) {
-        //     clientsNames.add(client.getName());
-        // }
-
-        // JList clientsList = new JList<>(clientsNames.toArray());
-        // JPanel clientsPanel = new JPanel();
-        // clientsPanel.add(clientsList);
-        // clientsPanel.setBounds(50, 50, 400, 400);
-
-        // window.add(clientsPanel);
     }
 
     public static void listAll() {

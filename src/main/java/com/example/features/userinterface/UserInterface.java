@@ -1,18 +1,7 @@
 package com.example.features.userinterface;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-import com.example.features.client.Client;
 import com.example.features.client.ClientCrud;
 import com.example.features.request.RequestCrud;
 
@@ -21,71 +10,10 @@ public class UserInterface {
     // Scanner que pode ser usado em toda a
     // aplicação para ler o teclado do usuário.
     public static Scanner scanner = new Scanner(System.in);
-
-    public static void guiNewClient(JFrame window) {
-        System.out.print("~~~ Teste ~~~ \n\n");
-    }
     
-    public static void mainMenu(JFrame window) {
+    public static void mainMenu() {
         
         while (true) {
-
-            window.getContentPane().setBackground(Color.PINK);
-
-            // JLabel appLogo = new JLabel("--- Sistema da Cris Ballon ---");
-            // appLogo.setHorizontalAlignment(JLabel.CENTER);
-
-            // window.add(appLogo);
-
-            JMenuBar menuBar = new JMenuBar();
-
-            JLabel appLogo = new JLabel("Sistema da Cris Ballon         ");
-            menuBar.add(appLogo);
-
-            JMenu clientsMenu = new JMenu("Clientes");
-            JMenuItem clientsMenuNewClient = new JMenuItem("Novo cliente +");
-            clientsMenuNewClient.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    guiNewClient(window);
-                }
-                
-            });
-
-            JMenuItem clientsMenuEditClient = new JMenuItem("Editar cliente");
-            JMenuItem clientsMenuRemoveClient = new JMenuItem("Remover cliente");
-            JMenuItem clientsMenuListClients = new JMenuItem("Listar clientes");
-            clientsMenuListClients.addActionListener(new ActionListener() {
-                
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ClientCrud.guiListAll(window);
-                }
-
-            });
-
-            clientsMenu.add(clientsMenuNewClient);
-            clientsMenu.add(clientsMenuEditClient);
-            clientsMenu.add(clientsMenuRemoveClient);
-            clientsMenu.add(clientsMenuListClients);
-
-            JMenu ordersMenu = new JMenu("Pedidos");
-
-            // JButton listClientsButton = new JButton("Listar clientes");
-            // listClientsButton.addActionListener(new ActionListener() {
-                
-            //     @Override
-            //     public void actionPerformed(ActionEvent e) {
-            //         ClientCrud.guiListAll(window);
-            //     }
-
-            // });
-
-            // menuBar.add(listClientsButton);
-            menuBar.add(clientsMenu);
-            menuBar.add(ordersMenu);
-            window.setJMenuBar(menuBar);
 
             System.out.print("\n==============================\n");
             System.out.print("--- Sistema da Cris Ballon --- \n\n");
