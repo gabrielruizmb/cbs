@@ -1,5 +1,6 @@
 package com.example;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,13 +19,16 @@ public class Main {
         
         JFrame window = new JFrame();
         JPanel genericPanel = new JPanel();
-
-        window.getContentPane().add(genericPanel);
-
+        
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(1080, 720);
         window.setVisible(true);
         window.setLayout(null);
+
+        genericPanel.setSize(1080, 720);
+        genericPanel.setBackground(Color.PINK);
+
+        window.getContentPane().add(genericPanel);
 
         JMenuBar mainMenuBar = new JMenuBar();
 
@@ -51,13 +55,26 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 genericPanel.add(ClientView.listAll());
-                genericPanel.setSize(500, 500);
+                // genericPanel.setSize(500, 500);
                 genericPanel.revalidate();
+                genericPanel.repaint();
             }
 
         });
 
+        ordersButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                genericPanel.removeAll();
+                genericPanel.repaint();
+            }
+            
+        });
+
         window.setJMenuBar(mainMenuBar);
+        window.revalidate();
+        window.repaint();
 
         // Exibe o menu principal de texto.
         // UserInterface.mainMenu();   
