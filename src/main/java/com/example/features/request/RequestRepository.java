@@ -44,4 +44,18 @@ public class RequestRepository {
         em.remove(request);
         em.getTransaction().commit();
     }
+
+    public List<Request> getPendingRequests() {
+        EntityManager em = CustomizerFactory.getEntityManager();
+
+        return em.createQuery("SELECT r FROM Request r WHERE r.confirmed = false OR r.confirmed IS NULL", 
+                            Request.class).getResultList();
+    }
+
+    public List<Request> getConfirmedSales() {
+        EntityManager em = CustomizerFactory.getEntityManager();
+
+        return em.createQuery("SELECT r FROM Request r WHERE r.confirmed = true", 
+                            Request.class).getResultList();
+    }
 }

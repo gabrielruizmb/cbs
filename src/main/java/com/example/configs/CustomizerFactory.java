@@ -15,7 +15,7 @@ public class CustomizerFactory {
 
     static {
         SessionFactory sessionFactory = new Configuration()
-            .configure("hibernate.cfg.xml")
+            .configure()
             .buildSessionFactory();
 
         emf = sessionFactory.unwrap(EntityManagerFactory.class);

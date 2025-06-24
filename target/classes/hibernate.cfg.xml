@@ -1,37 +1,22 @@
-<!-- Arquivo que faz a aplicação se conectar ao banco de dados -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">
-            org.postgresql.Driver
-        </property>
-
-        <!-- Endereço do nosso banco de dados -->
-        <property name="hibernate.connection.url">
-            jdbc:postgresql://localhost:5432/cris_ballon_system
-        </property>
-
-        <!-- Usuário dono do banco -->
-        <property name="hibernate.connection.username">mypguser</property>
-
-        <!-- Senha do banco deste usuário -->
-        <property name="hibernate.connection.password">postgres</property>
-        
-        <property name="hibernate.dialect">
-            org.hibernate.dialect.PostgreSQLDialect
-        </property>
-        
-        <!-- Modo de operação, ex: criar banco do zero, atualizar -->
-        <!-- Estratégia para atualizar o schema automaticamente -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">123</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
         
-        <property name="hibernate.show_sql">true</property>
-        <!-- Mostra os SQLs no console  -->
-
-        <property name="hibernate.format_sql">true</property>
-        <!-- Formata os SQLs para melhor legibilidade -->
-       
         <mapping class="com.example.features.client.Client"/>
         <mapping class="com.example.features.request.Request"/>
+        <mapping class="com.example.features.user.User"/>
+        <mapping class="com.example.features.user.AuditLog"/>
     </session-factory>
 </hibernate-configuration>

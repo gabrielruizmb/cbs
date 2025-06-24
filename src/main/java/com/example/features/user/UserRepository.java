@@ -1,59 +1,62 @@
-package com.example.features.client;
+package com.example.features.user;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import com.example.configs.CustomizerFactory;
 
-public class ClientRepository {
+public class UserRepository {
 
-    public void create(Client client) {
+    public void create(User user) {
         EntityManager em = CustomizerFactory.getEntityManager();
         try {
             em.getTransaction().begin();
-            em.persist(client);
+            em.persist(user);
             em.getTransaction().commit();
-        } finally {
-            em.close(); // Fechar o EntityManager após uso
-        }
-    }
-
-    public Client getById(Long id) {
-        EntityManager em = CustomizerFactory.getEntityManager();
-        try {
-            return em.find(Client.class, id);
         } finally {
             em.close();
         }
     }
 
-    public List<Client> getAll() {
+    public User findByUsername(String username) {
         EntityManager em = CustomizerFactory.getEntityManager();
         try {
-            TypedQuery<Client> query = em.createQuery("SELECT c FROM Client c", Client.class);
+            TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class);
+            query.setParameter("username", username);
+            List<User> users = query.getResultList();
+            return users.isEmpty() ? null : users.get(0);
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<User> getAll() {
+        EntityManager em = CustomizerFactory.getEntityManager();
+        try {
+            TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
             return query.getResultList();
         } finally {
             em.close();
         }
     }
 
-    public void update(Client client) {
+    public void update(User user) {
         EntityManager em = CustomizerFactory.getEntityManager();
         try {
             em.getTransaction().begin();
-            em.merge(client);
+            em.merge(user);
             em.getTransaction().commit();
         } finally {
             em.close();
         }
     }
 
-    public void delete(Client client) {
+    public void delete(User user) {
         EntityManager em = CustomizerFactory.getEntityManager();
         try {
             em.getTransaction().begin();
-            Client managedClient = em.contains(client) ? client : em.merge(client);
-            em.remove(managedClient);
+            User managedUser = em.contains(user) ? user : em.merge(user);
+            em.remove(managedUser);
             em.getTransaction().commit();
         } finally {
             em.close();

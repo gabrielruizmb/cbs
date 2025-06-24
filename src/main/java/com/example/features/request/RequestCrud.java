@@ -19,6 +19,16 @@ public class RequestCrud {
         System.out.print("~ Novo pedido ~ \n\n");
 
         ClientCrud.listAll();
+        
+        // Check if there are any clients
+        if (clientRepository.getAll().isEmpty()) {
+            System.out.print("\nNenhum cliente cadastrado!\n");
+            System.out.print("Cadastre um cliente primeiro no menu de clientes.\n\n");
+            System.out.print("Pressione Enter para voltar . . .");
+            UserInterface.scanner.nextLine();
+            return;
+        }
+        
         System.out.print("Escolha um cliente pelo ID: ");
         client = clientRepository.getById(UserInterface.scanner.nextLong());
 
@@ -37,6 +47,19 @@ public class RequestCrud {
         while (!request.setDescription(UserInterface.scanner.nextLine())) {
             System.out.print("A descrição não pode ficar em branco!\n");
             System.out.print("Descrição do pedido: ");
+        }
+
+        System.out.print("Preço do pedido: R$ ");
+        while (true) {
+            try {
+                double price = UserInterface.scanner.nextDouble();
+                UserInterface.scanner.nextLine();
+                request.setPrice(price);
+                break;
+            } catch (Exception e) {
+                System.out.print("Preço inválido! Digite um número: R$ ");
+                UserInterface.scanner.nextLine();
+            }
         }
 
         requestRepository.create(request);

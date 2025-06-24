@@ -15,7 +15,7 @@ import com.example.features.client.Client;
 @Entity
 public class Request {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -31,6 +31,12 @@ public class Request {
 
     @Column(nullable = false)
     private String description;
+
+    @Column
+    private Double price;
+
+    @Column
+    private Boolean confirmed = false;
 
     public Long getId() {
         return this.id;
@@ -70,6 +76,22 @@ public class Request {
 
         this.description = description;
         return true;
+    }
+
+    public Double getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Boolean getConfirmed() {
+        return this.confirmed;
+    }
+
+    public void setConfirmed(Boolean confirmed) {
+        this.confirmed = confirmed;
     }
 
     public Request() {
